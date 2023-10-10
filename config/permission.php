@@ -111,8 +111,8 @@ return [
      * 'model_has_permissions'(view the latest version of package's migration file)
      */
 
-    // 'teams' => false,
-    'teams' => true,
+    'teams' => false,
+    // 'teams' => true,
 
     /*
      * When set to true, the required permission names are added to the exception
