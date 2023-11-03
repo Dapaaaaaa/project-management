@@ -35,7 +35,7 @@
                            name="email"
                            value="{{ old('email') }}"
                            placeholder="Email"
-                           class="form-control @error('email') is-invalid @enderror">
+                           class="form-control @error('email') is-invalid @enderror" autofocus required>
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-envelope"></span></div>
                     </div>
@@ -48,7 +48,7 @@
                     <input type="password"
                            name="password"
                            placeholder="Password"
-                           class="form-control @error('password') is-invalid @enderror">
+                           class="form-control @error('password') is-invalid @enderror" required>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

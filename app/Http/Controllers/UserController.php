@@ -8,6 +8,9 @@ use App\Http\Controllers\AppBaseController;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
+use app\Http\Controllers\RoleController;
+use Spatie\Permission\Models\Role;
+use App\Http\Controllers\RoleManagementController;
 
 class UserController extends AppBaseController
 {
@@ -35,7 +38,8 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        $roles = RoleManagementController::pluck('name', 'id');
+        return view('users.create', compact('roles'));
     }
 
     /**
@@ -74,14 +78,15 @@ class UserController extends AppBaseController
     public function edit($id)
     {
         $user = $this->userRepository->find($id);
-
+        
         if (empty($user)) {
             Flash::error('User not found');
-
+            
             return redirect(route('users.index'));
         }
-
-        return view('users.edit')->with('user', $user);
+        
+        $roles = RoleManagementController::pluck('name', 'id');
+        return view('users.edit',)->with('user', $user);
     }
 
     /**

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -30,3 +30,10 @@ Route::resource('todoStatuses', App\Http\Controllers\Todo_statusController::clas
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('roles', App\Http\Controllers\RoleController::class);
 Route::resource('permissions', App\Http\Controllers\PermissionController::class);
+Route::resource('role-management', App\Http\Controllers\RoleManagementController::class);
+
+
+
+
+// Route::get('/users/{user}/edit', 'RoleManagementController@edit')->name('users.edit');
+// Route::put('/users/{user}', 'RoleManagementController@update')->name('users.update');

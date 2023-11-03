@@ -49,4 +49,6 @@ class User extends Model implements AuthenticatableContract
     {
         return $this->belongsToMany(\App\Models\Ticket::class, 'users_has_tickets');
     }
+
+    // public function User():  
 }

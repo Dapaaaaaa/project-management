@@ -22,12 +22,14 @@
     </a>
 </li>
 
+@role('project-management')
 <li class="nav-item">
     <a href="{{ route('projectUsers.index') }}" class="nav-link {{ Request::is('projectUsers*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-home"></i>
         <p>Project Users</p>
     </a>
 </li>
+@endrole
 
 <li class="nav-item">
     <a href="{{ route('todos.index') }}" class="nav-link {{ Request::is('todos*') ? 'active' : '' }}">

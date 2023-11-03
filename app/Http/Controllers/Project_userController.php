@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Laracasts\Flash\Flash;
+use App\Models\Project_user;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRole;
+use App\Http\Controllers\AppBaseController;
+use App\Repositories\Project_userRepository;
 use App\Http\Requests\CreateProject_userRequest;
 use App\Http\Requests\UpdateProject_userRequest;
-use App\Http\Controllers\AppBaseController;
-use App\Models\Project_user;
-use App\Repositories\Project_userRepository;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Laracasts\Flash\Flash;
 
 class Project_userController extends AppBaseController
 {
@@ -36,10 +38,13 @@ class Project_userController extends AppBaseController
             })->paginate(10);
         }
         $roleUser = Auth::user()->roles;
-
         return view('project_users.index')
             ->with('projectUsers', $projectUsers);
     }
+
+    //         $users = User::all(); // Ambil semua data pengguna
+    // return view('nama_tampilan', compact('users'));
+    // }
 
     /**
      * Show the form for creating a new Project_user.
